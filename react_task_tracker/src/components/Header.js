@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types' // 'impt' shortcut
+import PropTypes from 'prop-types'
 import Button from './Button'
 
 const Header = ({ myTitle }) => {
