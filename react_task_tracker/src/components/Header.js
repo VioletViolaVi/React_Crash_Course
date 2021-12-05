@@ -1,26 +1,33 @@
 import PropTypes from 'prop-types' // 'impt' shortcut
+import Button from './Button'
 
-const Header = ({ title }) => { // destructed from (props) to ({ title })
+const Header = ({ myTitle }) => {
+    const myClickFunc = () => {
+        console.log("Clicked");
+    }
+
     return (
-        <header>
-            <h1>{title}</h1> {/* destructed from props.title to title*/}
+        <header className="header">
+            <h1>{myTitle}</h1>
+            <Button myColour="green" myText="Add" myOnClick={myClickFunc} />
         </header>
     )
 }
 
-// provides default value if no title="" value is passed in <Header />
 Header.defaultProps = {
-    title: "Task Tracker"
+    myTitle: "Task Tracker"
 }
 
 Header.propTypes = {
-    title: PropTypes.string.isRequired
+    myTitle: PropTypes.string.isRequired
 }
 
-// CSS in JS
-// const headingStyle = {
-//     color: "red",
-//     backgroundColor: "black"
-// }
+/*
+    // CSS in JS
+    const headingStyle = {
+        color: "red",
+        backgroundColor: "black"
+    }
+*/
 
 export default Header

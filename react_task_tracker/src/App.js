@@ -2,7 +2,7 @@ import Header from "./components/Header";
 
 const App = () => {
   return (
-    <div className="container"> {/* className === class */} 
+    <div className="container">
       <Header />      
     </div>
   );
