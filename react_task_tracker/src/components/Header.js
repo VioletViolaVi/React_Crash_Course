@@ -3,7 +3,7 @@ import PropTypes from 'prop-types' // 'impt' shortcut
 const Header = ({ title }) => { // destructed from (props) to ({ title })
     return (
         <header>
-            <h1 style={{color: "red", backgroundColor: "black"}}>{title}</h1> {/* destructed from props.title to title*/}
+            <h1>{title}</h1> {/* destructed from props.title to title*/}
         </header>
     )
 }
@@ -16,5 +16,11 @@ Header.defaultProps = {
 Header.propTypes = {
     title: PropTypes.string.isRequired
 }
+
+// CSS in JS
+// const headingStyle = {
+//     color: "red",
+//     backgroundColor: "black"
+// }
 
 export default Header
