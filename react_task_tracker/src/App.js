@@ -36,12 +36,19 @@ const App = () => {
       setChores(chores.filter(singleChore => singleChore.id !== id))
     }
 
+    // TOGGLE REMINDER
+    const toggleReminder = id => {
+      setChores(chores.map(singleChore => singleChore.id === id 
+        ? {...singleChore, reminder: !singleChore.reminder} 
+        : singleChore))
+    }
+
   return (
     <div className="container">
       <Header />
         {
           chores.length > 0 ? 
-            (<Tasks chores={chores} onDelete={deleteChore} />) 
+            (<Tasks chores={chores} onDelete={deleteChore} onToggle={toggleReminder} />) 
             : ("No chores to left to do.")
         } 
     </div>
