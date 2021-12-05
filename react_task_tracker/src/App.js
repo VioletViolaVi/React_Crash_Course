@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import Tasks from "./components/Tasks";
 
 const App = () => {
-  const [chores] = useState(
+  const [chores, setChores] = useState(
     [
       {
           id: 1,
@@ -29,11 +29,20 @@ const App = () => {
           deadline: "5th Dec 2021",
           reminder: true
       }
-    ])
+    ]);
+
+    // DELETES TASK
+    const deleteChore = id => {
+      setChores(chores.filter(singleChore => singleChore.id !== id))
+    }
+
   return (
     <div className="container">
       <Header />
-      <Tasks chores={chores}/>
+      <Tasks 
+        chores={chores} 
+        onDelete={deleteChore}
+      />
     </div>
   );
 }
