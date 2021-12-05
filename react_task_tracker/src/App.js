@@ -39,10 +39,11 @@ const App = () => {
   return (
     <div className="container">
       <Header />
-      <Tasks 
-        chores={chores} 
-        onDelete={deleteChore}
-      />
+        {
+          chores.length > 0 ? 
+            (<Tasks chores={chores} onDelete={deleteChore} />) 
+            : ("No chores to left to do.")
+        } 
     </div>
   );
 }
