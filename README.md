@@ -1,4 +1,4 @@
-# TEST React Crash Course
+# React Crash Course
 This project is a Task Tracker. Users can see the list of their chores yet to be marked with a remainder. Users are free to set remainders on these chores. This is achieved by double clicking on the chore it will be marked with a green line on its left-hand side.
 
 # Technologies used:
