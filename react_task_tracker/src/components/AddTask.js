@@ -1,20 +1,20 @@
 import { useState } from "react"
 
 const AddTask = ({ onAdd }) => {
-    const [text, setText] = useState("");
-    const [day, setDay] = useState("");
+    const [jobChore, setJobChore] = useState("");
+    const [deadline, setDeadline] = useState("");
     const [reminder, setReminder] = useState(false);
 
     const onSubmit = (e) => {
         e.preventDefault()
-        if(!text) {
+        if(!jobChore) {
             alert("Please add a task")
             return
         }
-        onAdd({text, day, reminder})
+        onAdd({jobChore, deadline, reminder})
 
-        setText("")
-        setDay("")
+        setJobChore("")
+        setDeadline("")
         setReminder(false)
     }
 
@@ -24,19 +24,19 @@ const AddTask = ({ onAdd }) => {
                 <label>Task</label>
                 <input 
                     type="text" 
-                    placeholder="Add Task" 
-                    value={text}
-                    onChange={(e) => setText(e.target.value)}
+                    placeholder="Add Job Chore" 
+                    value={jobChore}
+                    onChange={(e) => setJobChore(e.target.value)}
                 />
             </div>
             
             <div className="form-control">
-                <label>Day & Time</label>
+                <label>Deadline</label>
                 <input 
                     type="text" 
-                    placeholder="Add Day & Time"
-                    value={day}
-                    onChange={(e) => setDay(e.target.value)}
+                    placeholder="Add Deadline"
+                    value={deadline}
+                    onChange={(e) => setDeadline(e.target.value)}
                 />
             </div>
             

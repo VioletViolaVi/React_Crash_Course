@@ -14,8 +14,8 @@
     },
     {
       "id": 3,
-      "jobChore": "Throw away bin",
-      "deadline": "10th Dec 2021",
+      "jobChore": "Throw bin away",
+      "deadline": "16th Dec 2021",
       "reminder": true
     },
     {
@@ -23,6 +23,12 @@
       "jobChore": "Eat fruit",
       "deadline": "5th Dec 2021",
       "reminder": true
+    },
+    {
+      "jobChore": "Make bed",
+      "deadline": "33rd Nevuary 2022",
+      "reminder": false,
+      "id": 7
     }
   ]
 }
