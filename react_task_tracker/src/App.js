@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Tasks from "./components/Tasks";
 
 const App = () => {
+  const [showAddTask, setShowAddTask] = useState(false)
   const [chores, setChores] = useState(
     [
       {
@@ -32,6 +33,13 @@ const App = () => {
       }
     ]);
 
+    // ADDS TASK
+    const addTask = (singleChore) => {
+      const id = Math.floor(Math.random() * 1000) + 1
+      const newChore = {id, ...singleChore}
+      setChores([...chores, newChore])
+    }
+
     // DELETES TASK
     const deleteChore = id => {
       setChores(chores.filter(singleChore => singleChore.id !== id))
@@ -46,11 +54,14 @@ const App = () => {
 
   return (
     <div className="container">
-      <Header />
-      <AddTask />
+      <Header onAdd={() =>
+        setShowAddTask(!showAddTask)} 
+        showAdd={showAddTask} 
+      />
+      {showAddTask && <AddTask onAdd={addTask}/>}
         {
-          chores.length > 0 ? 
-            (<Tasks chores={chores} onDelete={deleteChore} onToggle={toggleReminder} />) 
+          chores.length > 0 ? (
+            <Tasks chores={chores} onDelete={deleteChore} onToggle={toggleReminder} />) 
             : ("No chores to left to do.")
         } 
     </div>
