@@ -1,26 +1,27 @@
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 
-const Button = ({myColour, myText, myOnClick}) => {
-    return (
-        <div>
-            <button 
-                className="btn"
-                style={{backgroundColor:myColour}} 
-                onClick={myOnClick}>
-                {myText}
-            </button>
-        </div>
-    )
-}
+const Button = ({ myColour, myText, myOnClick }) => {
+  return (
+    <div>
+      <button
+        className="btn"
+        style={{ backgroundColor: myColour }}
+        onClick={myOnClick}
+      >
+        {myText}
+      </button>
+    </div>
+  );
+};
 
 Button.defaultProps = {
-    myColour: "steelblue"
-}
+  myColour: "steelblue",
+};
 
 Button.propTypes = {
-    myText: PropTypes.string,
-    myColour: PropTypes.string,
-    myOnClick: PropTypes.func
-}
+  myText: PropTypes.string,
+  myColour: PropTypes.string,
+  myOnClick: PropTypes.func,
+};
 
-export default Button
+export default Button;
