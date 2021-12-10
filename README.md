@@ -2,7 +2,7 @@
 
 This project is a Chore Tracker. Users can see the list of their chores yet to be marked with a remainder. Users are free to create, delete and set reminders on these chores. Creating chores is done by clicking the _**Add**_ and completing the displayed form. Deleting chores is made possible by clicking the red cross in the top-right hand corner of the chore. Setting reminders is achieved by double clicking on the chore. A green line on its left-hand side will appear as a result.
 
-# Technologies used:
+# Technologies used
 
 - [React](https://reactjs.org/)
 - [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
