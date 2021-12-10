@@ -90,7 +90,7 @@ const App = () => {
             showAdd={showAddChore} 
           />
           <Routes>
-            <Route path="/" exact render={props => (
+            <Route path="/" exact element={(
               <>
                 {showAddChore && <AddTask onAdd={addChore}/>}
                 {
@@ -103,7 +103,7 @@ const App = () => {
           </Routes>
 
           <Routes>
-            <Route path="/about" component={About} />
+            <Route path="/about" element={About()} />
           </Routes>
           <Footer />
         </div>
