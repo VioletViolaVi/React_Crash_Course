@@ -60,8 +60,20 @@ const App = () => {
     }
 
     // TOGGLE REMINDER
-    const toggleReminder = id => {
-      // const choreToToggle = await fetchChore
+    const toggleReminder = async id => {
+      const choreToToggle = await fetchChore(id);
+      const updatedChore = {...choreToToggle, reminder : !choreToToggle.reminder}
+
+      const res = await fetch(`http://localhost:5000/chores/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(updatedChore)
+      })
+
+      const data = await res.json();
+
       setChores(chores.map(singleChore => singleChore.id === id 
         ? {...singleChore, reminder: !singleChore.reminder} 
         : singleChore))

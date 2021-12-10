@@ -22,12 +22,12 @@
       "id": 4,
       "jobChore": "Eat fruit",
       "deadline": "5th Dec 2021",
-      "reminder": true
+      "reminder": false
     },
     {
       "jobChore": "Make bed",
       "deadline": "33rd Nevuary 2022",
-      "reminder": false,
+      "reminder": true,
       "id": 7
     }
   ]
