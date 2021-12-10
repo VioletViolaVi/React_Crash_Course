@@ -8,7 +8,7 @@ const AddTask = ({ onAdd }) => {
     const onSubmit = (e) => {
         e.preventDefault()
         if(!jobChore) {
-            alert("Please add a task")
+            alert("Please add a chore")
             return
         }
         onAdd({jobChore, deadline, reminder})
@@ -21,7 +21,7 @@ const AddTask = ({ onAdd }) => {
     return (
         <form className="add-form" onSubmit={onSubmit}>
             <div className="form-control">
-                <label>Task</label>
+                <label>Chore</label>
                 <input 
                     type="text" 
                     placeholder="Add Job Chore" 
@@ -50,7 +50,7 @@ const AddTask = ({ onAdd }) => {
                 />
             </div>
 
-            <input type="submit" value="Save Task" className="btn btn-block" />
+            <input type="submit" value="Save Chore" className="btn btn-block" />
         </form>
     )
 }

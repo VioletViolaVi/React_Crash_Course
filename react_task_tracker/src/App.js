@@ -4,27 +4,35 @@ import Header from "./components/Header";
 import Tasks from "./components/Tasks";
 
 const App = () => {
-  const [showAddTask, setShowAddTask] = useState(false)
+  const [showAddChore, setShowAddChore] = useState(false)
   const [chores, setChores] = useState([]);
 
   useEffect(() => {
-    const getTasks = async () => {
-      const tasksFromServer = await fetchTasks()
-      setChores(tasksFromServer)
+    const getChores = async () => {
+      const choresFromServer = await fetchChores()
+      setChores(choresFromServer)
     }
-    getTasks()
+    getChores()
   }, [])
 
     // FETCH CHORES
-    const fetchTasks = async () => {
+    const fetchChores = async () => {
       const res = await fetch("http://localhost:5000/chores")
       const data = await res.json()
       
       return data
     }
 
-    // ADDS TASK
-    const addTask = async (singleChore) => {
+    // FETCH CHORE (1!!!)
+    const fetchChore = async id => {
+      const res = await fetch(`http://localhost:5000/chores/${id}`)
+      const data = await res.json()
+      
+      return data
+    }
+
+    // ADDS CHORE
+    const addChore = async (singleChore) => {
       const res = await fetch("http://localhost:5000/chores", {
         method: "POST",
         headers: {
@@ -42,7 +50,7 @@ const App = () => {
       */
     }
 
-    // DELETES TASK
+    // DELETES CHORE
     const deleteChore = async id => {
       await fetch(`http://localhost:5000/chores/${id}`,{
         method: "DELETE"
@@ -53,6 +61,7 @@ const App = () => {
 
     // TOGGLE REMINDER
     const toggleReminder = id => {
+      // const choreToToggle = await fetchChore
       setChores(chores.map(singleChore => singleChore.id === id 
         ? {...singleChore, reminder: !singleChore.reminder} 
         : singleChore))
@@ -61,10 +70,10 @@ const App = () => {
   return (
     <div className="container">
       <Header onAdd={() =>
-        setShowAddTask(!showAddTask)} 
-        showAdd={showAddTask} 
+        setShowAddChore(!showAddChore)} 
+        showAdd={showAddChore} 
       />
-      {showAddTask && <AddTask onAdd={addTask}/>}
+      {showAddChore && <AddTask onAdd={addChore}/>}
         {
           chores.length > 0 ? (
             <Tasks chores={chores} onDelete={deleteChore} onToggle={toggleReminder} />) 
